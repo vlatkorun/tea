@@ -1,0 +1,1 @@
+export const GET_NEW_TWEETS = 'GET_NEW_TWEETS';
