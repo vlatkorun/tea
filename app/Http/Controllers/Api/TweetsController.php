@@ -32,7 +32,7 @@ class TweetsController extends Controller
 
         $params = $request->extractParams();
 
-        event(new GetNewTweets($params['keyword'], $request->session()->get('client_id')));
+        event(new GetNewTweets($params['keyword'], $params['client_id']));
 
         return response()->json(['message' => 'Fetching started']);
     }

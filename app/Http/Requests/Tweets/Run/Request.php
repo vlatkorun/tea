@@ -28,6 +28,7 @@ class Request extends FormRequest implements SupportsCreateOrUpdateInterface
     public function rules() {
         return [
             'keyword' => 'required',
+            'client_id' => 'required',
         ];
     }
 }

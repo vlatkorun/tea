@@ -30,6 +30,6 @@ class GetNewTweets extends Event implements ShouldBroadcast
     }
 
     public function broadcastAs() {
-        return 'GET_NEW_TWEETS';
+        return 'FETCH_FROM_TWITTER_API_START';
     }
 }

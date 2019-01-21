@@ -27,9 +27,13 @@ class TweetsFetchedFromTwitterApi extends Event implements ShouldBroadcast
     public function broadcastWith() {
         return [
             'keyword' => $this->keyword,
-            'tweets' => $this->tweets,
+//            'tweets' => $this->tweets,
             'timestamp' => time(),
             'client_id' => $this->clientId,
         ];
+    }
+
+    public function broadcastAs() {
+        return 'FETCH_FROM_TWITTER_API_FINISH';
     }
 }

@@ -1,28 +1,32 @@
 import Echo from 'laravel-echo';
+import { pusher as pusherConfig } from '../config';
 
-import { pusher } from '../config';
+window.Pusher = require('pusher-js');
+Pusher.logToConsole = pusherConfig.logToConsole;
 
 import channels from './channels';
 
-export function init({ key, cluster, encrypted, store}) {
+export function init({ key, cluster, encrypted, store }) {
 
-    const echo = new Echo({
+    window.Echo = new Echo({
         broadcaster: 'pusher',
-        key: key || pusher.key,
-        cluster: cluster || pusher.cluster,
-        encrypted: encrypted || pusher.encrypted
+        key: key || pusherConfig.key,
+        cluster: cluster || pusherConfig.cluster,
+        encrypted: encrypted || pusherConfig.encrypted,
     });
 
     if(store) {
         channels.forEach(({ name, events }) => {
+            events.forEach((event) => {
+                window.Echo.listen(name, `.${event.name}`, (data) => {
 
-            const channel = echo.channel(name);
+                    const currentState = store.getState();
 
-            events.forEach(({ name, actionCreator }) => {
-                channel.listen(name, (event) => {
-                    store.dispatch(actionCreator(event));
-                })
+                    if(data.client_id && currentState.user.client_id && data.client_id === currentState.user.client_id) {
+                        store.dispatch(event.actionCreator(data));
+                    }
+                });
             });
-        })
+        });
     }
 }
