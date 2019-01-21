@@ -9688,6 +9688,75 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /***/ }),
 
+/***/ "./resources/js/actionCreators/app/reset.js":
+/*!**************************************************!*\
+  !*** ./resources/js/actionCreators/app/reset.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return reset; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/index.js");
+/* harmony import */ var _actions_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/app */ "./resources/js/actions/app.js");
+/* harmony import */ var _api_app_reset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../api/app/reset */ "./resources/js/api/app/reset.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+function reset(id) {
+  var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  return (
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(dispatch) {
+        var _ref2, status;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return Object(_api_app_reset__WEBPACK_IMPORTED_MODULE_3__["default"])(params);
+
+              case 2:
+                _ref2 = _context.sent;
+                status = _ref2.status;
+
+                if (status) {
+                  dispatch({
+                    type: _actions_app__WEBPACK_IMPORTED_MODULE_2__["RESET_APP"]
+                  });
+                  window.location.href = '/';
+                }
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }()
+  );
+}
+
+/***/ }),
+
 /***/ "./resources/js/actionCreators/errors/clearError.js":
 /*!**********************************************************!*\
   !*** ./resources/js/actionCreators/errors/clearError.js ***!
@@ -10240,6 +10309,20 @@ function fetchFromTwitterApiStart(data) {
 
 /***/ }),
 
+/***/ "./resources/js/actions/app.js":
+/*!*************************************!*\
+  !*** ./resources/js/actions/app.js ***!
+  \*************************************/
+/*! exports provided: RESET_APP */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APP", function() { return RESET_APP; });
+var RESET_APP = 'RESET_APP';
+
+/***/ }),
+
 /***/ "./resources/js/actions/errors.js":
 /*!****************************************!*\
   !*** ./resources/js/actions/errors.js ***!
@@ -10317,6 +10400,72 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_FROM_TWITTER_API_FINISH", function() { return FETCH_FROM_TWITTER_API_FINISH; });
 var FETCH_FROM_TWITTER_API_START = 'FETCH_FROM_TWITTER_API_START';
 var FETCH_FROM_TWITTER_API_FINISH = 'FETCH_FROM_TWITTER_API_FINISH';
+
+/***/ }),
+
+/***/ "./resources/js/api/app/reset.js":
+/*!***************************************!*\
+  !*** ./resources/js/api/app/reset.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(_) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return reset; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+function reset() {
+  return _reset.apply(this, arguments);
+}
+
+function _reset() {
+  _reset = _asyncToGenerator(
+  /*#__PURE__*/
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var options,
+        params,
+        response,
+        _args = arguments;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};
+            params = _.pickBy({// include: options.include || null
+            }, _.identity);
+            _context.next = 4;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/app/reset', {
+              params: params
+            });
+
+          case 4:
+            response = _context.sent;
+            return _context.abrupt("return", !_.isError(response) ? {
+              status: true
+            } : {
+              status: false
+            });
+
+          case 6:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _reset.apply(this, arguments);
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js")))
 
 /***/ }),
 
@@ -10597,16 +10746,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _ResetAppButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ResetAppButton */ "./resources/js/components/footer/ResetAppButton.jsx");
+
 
 
 
 var Footer = function Footer() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "text-muted"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vladimir Runchev \xA9 2019")));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vladimir Runchev \xA9 2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ResetAppButton__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
+
+/***/ }),
+
+/***/ "./resources/js/components/footer/ResetAppButton.jsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/footer/ResetAppButton.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var recompose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! recompose */ "./node_modules/recompose/dist/Recompose.esm.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _actionCreators_app_reset__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actionCreators/app/reset */ "./resources/js/actionCreators/app/reset.js");
+
+
+
+
+
+
+
+var ResetAppButton = function ResetAppButton(_ref) {
+  var onReset = _ref.onReset;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+    color: "primary",
+    onClick: onReset
+  }, "Reset app");
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])({
+    reset: _actionCreators_app_reset__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }, dispatch);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(recompose__WEBPACK_IMPORTED_MODULE_1__["compose"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mapDispatchToProps), Object(recompose__WEBPACK_IMPORTED_MODULE_1__["withProps"])(function (_ref2) {
+  var reset = _ref2.reset;
+  return {
+    onReset: function onReset() {
+      reset();
+    }
+  };
+}))(ResetAppButton));
 
 /***/ }),
 
@@ -12565,6 +12764,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _errors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./errors */ "./resources/js/reducers/errors.js");
 /* harmony import */ var _tweets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tweets */ "./resources/js/reducers/tweets.js");
 /* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user */ "./resources/js/reducers/user.js");
+/* harmony import */ var _actions_app__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions/app */ "./resources/js/actions/app.js");
+
 
 
 
@@ -12573,13 +12774,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var rootReducer = function rootReducer(history) {
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-    form: redux_form__WEBPACK_IMPORTED_MODULE_1__["reducer"],
-    router: Object(connected_react_router__WEBPACK_IMPORTED_MODULE_2__["connectRouter"])(history),
-    tweets: _tweets__WEBPACK_IMPORTED_MODULE_4__["default"],
-    errors: _errors__WEBPACK_IMPORTED_MODULE_3__["default"],
-    user: _user__WEBPACK_IMPORTED_MODULE_5__["default"]
-  });
+  return function (state, action) {
+    if (action.type === _actions_app__WEBPACK_IMPORTED_MODULE_6__["RESET_APP"]) {
+      var _state = state,
+          _user = _state.user;
+      state = {
+        user: _user
+      };
+    }
+
+    var appReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+      form: redux_form__WEBPACK_IMPORTED_MODULE_1__["reducer"],
+      router: Object(connected_react_router__WEBPACK_IMPORTED_MODULE_2__["connectRouter"])(history),
+      tweets: _tweets__WEBPACK_IMPORTED_MODULE_4__["default"],
+      errors: _errors__WEBPACK_IMPORTED_MODULE_3__["default"],
+      user: _user__WEBPACK_IMPORTED_MODULE_5__["default"]
+    });
+    return appReducer(state, action);
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
