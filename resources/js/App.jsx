@@ -9,10 +9,19 @@ import history from "./createHistory";
 
 import setClientId from "./actionCreators/user/setClientId";
 
-const App = () => (
-    <ConnectedRouter history={history}>
-        <Routes />
-    </ConnectedRouter>
+// const App = () => (
+//     <ConnectedRouter history={history}>
+//         <Routes />
+//     </ConnectedRouter>
+// );
+
+import withStyles from './hoc/styles/withStyles';
+
+
+const App = ({ className }) => (
+    <div className={className}>
+        <h1>Styled</h1>
+    </div>
 );
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -30,5 +39,9 @@ export default compose(
                 this.props.setClientId(clientId.content);
             }
         }
+    }),
+    withStyles({
+        color: 'palevioletred',
+        fontWeight: 'bold'
     })
 )(App);

@@ -65,7 +65,8 @@ mix.react('resources/js/index.js', 'public/js/app.js').extract([
     '@fortawesome/react-fontawesome',
     '@fortawesome/fontawesome-svg-core',
     '@fortawesome/free-solid-svg-icons',
-    '@fortawesome/free-brands-svg-icons'
+    '@fortawesome/free-brands-svg-icons',
+    'styled-components'
 ]);
 
 mix.sass('resources/sass/app.scss', 'public/css');
